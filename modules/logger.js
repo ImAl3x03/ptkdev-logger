@@ -195,14 +195,14 @@ class Log {
 				}
 				let log_text = `[${this.currentTime()}] [${type.id}] ${tag}${message}\n`;
 
-				fse.appendFile(this.config.path.debug_log, ansi(log_text), (err) => {
+				fse.appendFileSync(this.config.path.debug_log, ansi(log_text), (err) => {
 					if (err) {
 						logger.log(err);
 					}
 				});
 
 				if (type.id === "ERROR") {
-					fse.appendFile(this.config.path.error_log, ansi(log_text), (err) => {
+					fse.appendFileSync(this.config.path.error_log, ansi(log_text), (err) => {
 						if (err) {
 							logger.err(err);
 						}
